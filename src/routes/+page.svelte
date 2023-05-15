@@ -1,8 +1,34 @@
+<script>
+    import banbenParam from "./banbenParam/+page.svelte";
+    import changkuanbiParam from "./changkuanbiParam/+page.svelte";
+    import paichuParam from "./paichuParam/+page.svelte";
+    import suijiParam from "./suijiParam/+page.svelte";
+    import fenggeParam from "./fenggeParam/+page.svelte";
+    import xijieParam from "./xijieParam/+page.svelte";
+    import zhongziParam from "./zhongziParam/+page.svelte";
+    import quanzhongParam from "./quanzhongParam/+page.svelte";
+
+    let activeComponent = "banben"; // 默认渲染字符串参数组件
+    const components = {
+        banben: banbenParam,
+        changkuanbi: changkuanbiParam,
+        paichu: paichuParam,
+        suiji: suijiParam,
+        fengge: fenggeParam,
+        xijie: xijieParam,
+        zhongzi: zhongziParam,
+        quanzhong: quanzhongParam
+    };
+
+    // @ts-ignore
+    $: component = components[activeComponent]; // 根据activeComponent获取对应组件
+</script>
+
 <template>
     <div class="flex flex-col h-screen">
         <div class="flex-none p-4 border-b">
             <label class="text-lg font-bold">prompt</label>
-            <textarea
+            <textarea 
                 class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
             />
         </div>
@@ -13,14 +39,54 @@
                         >基本参数</button
                     >
                     <div class="pl-4">
-                        <button class="w-full py-2 text-left hover:bg-gray-100" on:click={() => { activeComponent = "banben"}}>版本</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100" on:click={() => { activeComponent = "changkuanbi"}}>长宽比</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">排除(no)</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">随机程度</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">风格化程度</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">细节丰富度</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">种子(seed)</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">图片权重</button>
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "banben";
+                            }}>版本</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "changkuanbi";
+                            }}>长宽比</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "paichu";
+                            }}>排除(no)</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "suiji";
+                            }}>随机程度</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "fengge";
+                            }}>风格化程度</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "xijie";
+                            }}>细节丰富度</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "zhongzi";
+                            }}>种子(seed)</button
+                        >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100"
+                            on:click={() => {
+                                activeComponent = "quanzhong";
+                            }}>图片权重</button
+                        >
                     </div>
                 </div>
                 <div class="mb-4">
@@ -72,14 +138,3 @@
         </div>
     </div>
 </template>
-
-<script>
-  import banbenParam from './banbenParam/+page.svelte';
-  import changkuanbiParam from './changkuanbiParam/+page.svelte';
-
-  let activeComponent = "banben"; // 默认渲染字符串参数组件
-  const components = { "banben": banbenParam, "changkuanbi": changkuanbiParam };
-
-  $: component = components[activeComponent]; // 根据activeComponent获取对应组件
-
-</script>
