@@ -13,8 +13,8 @@
                         >基本参数</button
                     >
                     <div class="pl-4">
-                        <button class="w-full py-2 text-left hover:bg-gray-100">版本</button>
-                        <button class="w-full py-2 text-left hover:bg-gray-100">长宽比</button>
+                        <button class="w-full py-2 text-left hover:bg-gray-100" on:click={() => { activeComponent = "banben"}}>版本</button>
+                        <button class="w-full py-2 text-left hover:bg-gray-100" on:click={() => { activeComponent = "changkuanbi"}}>长宽比</button>
                         <button class="w-full py-2 text-left hover:bg-gray-100">排除(no)</button>
                         <button class="w-full py-2 text-left hover:bg-gray-100">随机程度</button>
                         <button class="w-full py-2 text-left hover:bg-gray-100">风格化程度</button>
@@ -58,24 +58,7 @@
             </div>
             <div class="flex-1 p-4">
                 <div class="mb-4">
-                    <label class="block font-bold">参数1:</label>
-                    <input
-                        type="text"
-                        class="w-full mt-1 rounded-md border-gray-300"
-                    />
-                </div>
-                <div class="mb-4">
-                    <label class="block font-bold">参数2:</label>
-                    <input
-                        type="text"
-                        class="w-full mt-1 rounded-md border-gray-300"
-                    />
-                </div>
-                <div>
-                    <button
-                        class="w-full py-2 text-white bg-blue-300 hover:bg-blue-300 rounded-md"
-                        >执行操作</button
-                    >
+                    <svelte:component this={component} />
                 </div>
             </div>
             <div class="flex-none w-64 p-4 border-l">
@@ -89,3 +72,14 @@
         </div>
     </div>
 </template>
+
+<script>
+  import banbenParam from './banbenParam/+page.svelte';
+  import changkuanbiParam from './changkuanbiParam/+page.svelte';
+
+  let activeComponent = "banben"; // 默认渲染字符串参数组件
+  const components = { "banben": banbenParam, "changkuanbi": changkuanbiParam };
+
+  $: component = components[activeComponent]; // 根据activeComponent获取对应组件
+
+</script>
