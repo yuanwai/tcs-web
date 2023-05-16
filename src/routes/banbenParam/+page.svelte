@@ -1,23 +1,34 @@
 <script>
-// @ts-nocheck
+    // @ts-ignore
+    import { prompt_str } from "./../store.js";
+    let mid_version = "";
+    $prompt_str = mid_version;
+</script>
 
-    import { select_value } from "svelte/internal";
+<slot>
+    <div class="flex-none p-4 border-b">
+        <textarea
+            id="prompt"
+            class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
+            bind:value={mid_version}
+        />
+    </div>
+</slot>
+<h2>选择Midjourney版本</h2>
+<div class="flex flex-col">
+    <label>
+        <input type="radio" bind:group={mid_version} value={"--v 5.1"} />
+        v5.1
+    </label>
 
-    let selected = 'v5';
-    const options = [
-      { id: 'v5_1', label: 'v5.1' },
-      { id: 'v5', label: 'v5.0' },
-      { id: 'v4', label: 'v4.0' },
-    ];
-  </script>
-  
-  <form>
-    {#each options as option}
-      <label class="inline-flex items-center">
-        <input
-          type="radio" bind:value={selected} 
-          class="form-radio text-indigo-600 h-5 w-5" select_value={option.id} />
-        <span class="ml-2 text-gray-700">{option.label}</span>
-      </label>
-    {/each}
-  </form>
+    <label>
+        <input type="radio" bind:group={mid_version} value={"--v 5"} />
+        v5.0
+    </label>
+
+    <label>
+        <input type="radio" bind:group={mid_version} value={"--v 4"} />
+        v4
+    </label>
+</div>
+<br />
