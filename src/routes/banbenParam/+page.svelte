@@ -1,8 +1,11 @@
 <script>
     // @ts-ignore
-    import { prompt_str } from "./../store.js";
+    import { prompt_str,appendPrompt } from "./../store.js";
     let mid_version = "";
-    $prompt_str = mid_version;
+    function changeRadio(){
+      appendPrompt(mid_version);
+    }
+    
 </script>
 
 <slot>
@@ -17,18 +20,17 @@
 <h2>选择Midjourney版本</h2>
 <div class="flex flex-col">
     <label>
-        <input type="radio" bind:group={mid_version} value={"--v 5.1"} />
+        <input type="radio" bind:group={mid_version} on:change={changeRadio} value={"--v 5.1"} />
         v5.1
     </label>
 
     <label>
-        <input type="radio" bind:group={mid_version} value={"--v 5"} />
+        <input type="radio" bind:group={mid_version} on:change={changeRadio} value={"--v 5"} />
         v5.0
     </label>
 
     <label>
-        <input type="radio" bind:group={mid_version} value={"--v 4"} />
+        <input type="radio" bind:group={mid_version} on:change={changeRadio} value={"--v 4"} />
         v4
     </label>
 </div>
-<br />
