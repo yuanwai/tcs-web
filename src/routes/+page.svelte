@@ -10,7 +10,6 @@
     
     // @ts-ignore
     import {prompt_str} from "./store.js";
-
     let activeComponent = "banben"; // 默认渲染字符串参数组件
     const components = {
         banben: banbenParam,
@@ -25,15 +24,11 @@
 
     // @ts-ignore
     $: component = components[activeComponent]; // 根据activeComponent获取对应组件
-  
-    let param_value = 1;
-    console.log("prompt_str:"+prompt_str)
 </script>
 
 
 <template>
     <div class="flex flex-col h-screen">
-        <banbenParam></banbenParam>
         <div class="flex-1 flex flex-row">
             <div class="flex-none w-64 p-4 border-r">
                 <div class="mb-4">
