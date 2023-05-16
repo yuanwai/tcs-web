@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import { select_value } from "svelte/internal";
 
     let selected = 'v5';
