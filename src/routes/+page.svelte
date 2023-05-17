@@ -127,7 +127,7 @@
             <div class="flex-none w-64 p-4 border-l">
                 <div class="mb-4">
                     <label class="block font-bold">结果:</label>
-                    <p>{$prompt_str}</p>
+                    <p></p>
                 </div>
             </div>
         </div>

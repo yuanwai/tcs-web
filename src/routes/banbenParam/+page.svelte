@@ -13,7 +13,7 @@
         <textarea
             id="prompt"
             class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
-            bind:value={mid_version}
+            bind:value={$prompt_str}
         />
     </div>
 </slot>
