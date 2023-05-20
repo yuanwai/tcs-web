@@ -7,9 +7,15 @@
     import xijieParam from "./xijieParam/+page.svelte";
     import zhongziParam from "./zhongziParam/+page.svelte";
     import quanzhongParam from "./quanzhongParam/+page.svelte";
-    
+
     // @ts-ignore
-    import {prompt_str} from "./store.js";
+    import { prompt_map } from "./store.js";
+    let prompt_str = "";
+    /**
+     * @type {any[]}
+     */
+    let valuesArray = [];
+   
     let activeComponent = "banben"; // 默认渲染字符串参数组件
     const components = {
         banben: banbenParam,
@@ -19,16 +25,26 @@
         fengge: fenggeParam,
         xijie: xijieParam,
         zhongzi: zhongziParam,
-        quanzhong: quanzhongParam
+        quanzhong: quanzhongParam,
     };
 
     // @ts-ignore
     $: component = components[activeComponent]; // 根据activeComponent获取对应组件
+    $: {
+        valuesArray = Object.values($prompt_map);
+    }
 </script>
-
 
 <template>
     <div class="flex flex-col h-screen">
+        <div class="flex-none p-4 border-b">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label class="text-lg font-bold">Prompt</label>
+            <textarea
+                class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
+                value={valuesArray.join(' ')}
+            />
+        </div>
         <div class="flex-1 flex flex-row">
             <div class="flex-none w-64 p-4 border-r">
                 <div class="mb-4">
@@ -36,12 +52,21 @@
                         >基本参数</button
                     >
                     <div class="pl-4">
+                        {#if $prompt_map["banben"] == null}
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100"
                             on:click={() => {
                                 activeComponent = "banben";
                             }}>版本</button
                         >
+                        {:else}
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 bg-sky-600"
+                            on:click={() => {
+                                activeComponent = "banben";
+                            }}>版本</button
+                        >
+                        {/if}
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100"
                             on:click={() => {
@@ -126,10 +151,14 @@
             </div>
             <div class="flex-none w-64 p-4 border-l">
                 <div class="mb-4">
+                    <!-- svelte-ignore a11y-label-has-associated-control -->
                     <label class="block font-bold">结果:</label>
-                    <p></p>
+                    <textarea
+                        id="prompt"
+                        class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
+                    />
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </template>
