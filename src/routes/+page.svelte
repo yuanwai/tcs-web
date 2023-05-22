@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import banbenParam from "./banbenParam/+page.svelte";
     import changkuanbiParam from "./changkuanbiParam/+page.svelte";
     import paichuParam from "./paichuParam/+page.svelte";
@@ -41,7 +43,10 @@
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="text-lg font-bold">Prompt</label>
             <textarea
-                class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
+                class="block w-full h-12 mt-2 border border-gray-300 rounded-md"
+            />
+            <textarea
+                class="block w-full h-12 mt-2 border border-gray-300 rounded-md"
                 value={valuesArray.join(" ")}
             />
         </div>

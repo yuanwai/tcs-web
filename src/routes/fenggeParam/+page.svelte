@@ -4,10 +4,14 @@
     import { prompt_map, addItem, emptyItem } from "./../store.js";
     let fengge = "";
     let styleSize = 100;
+    /**
+     * @param {string} str
+     */
     function isUnderf(str) {
         return typeof str === "undefined";
     }
     onMount(() => {
+        // @ts-ignore
         prompt_map.subscribe((val) => (fengge = val["fg"]));
         if (!isUnderf(fengge)) {
             let splitArray = fengge.split(" ");

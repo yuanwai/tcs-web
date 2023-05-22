@@ -4,6 +4,7 @@
     import { prompt_map,addItem,emptyItem } from "./../store.js";
     let xijie = "--quality 1";
     onMount(() => {
+       // @ts-ignore
        prompt_map.subscribe((val) => xijie = val["xijie"]);
     });
     function changeRadio(){

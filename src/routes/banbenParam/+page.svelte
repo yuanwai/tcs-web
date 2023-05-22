@@ -4,10 +4,21 @@
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
    
+    let mid_version_number = 0;
     let mid_version = "";
+    /**
+     * @param {string} str
+     */
+     function isUnderf(str) {
+        return typeof str === "undefined";
+    }
     onMount(() => {
        // @ts-ignore
        prompt_map.subscribe((val) => mid_version = val["banben"]);
+       if (!isUnderf(mid_version)) {
+            let splitArray = mid_version.split(" ");
+            mid_version_number = Number(splitArray[splitArray.length - 1]);
+        }
     });
     function changeRadio() {
         addItem("banben", mid_version);

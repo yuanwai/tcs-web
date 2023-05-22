@@ -4,10 +4,14 @@
     import { prompt_map, addItem, emptyItem } from "./../store.js";
     let suiji = "";
     let suijiSize  = 0;
+    /**
+     * @param {string} str
+     */
     function isUnderf(str) {
         return typeof str === "undefined";
     }
     onMount(() => {
+        // @ts-ignore
         prompt_map.subscribe((val) => (suiji = val["suiji"]));
         if (!isUnderf(suiji)) {
             let splitArray = suiji.split(" ");

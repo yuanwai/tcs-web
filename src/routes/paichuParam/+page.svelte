@@ -4,10 +4,14 @@
     import { prompt_map, addItem, emptyItem } from "./../store.js";
     let paichu = "";
     let paichu_prompt = "";
+    /**
+     * @param {string} str
+     */
     function isUnderf(str) {
         return typeof str === "undefined";
     }
     onMount(() => {
+        // @ts-ignore
         prompt_map.subscribe((val) => (paichu_prompt = val["paichu"]));
         if (!isUnderf(paichu_prompt)) {
             let splitArray = paichu_prompt.split(" ");

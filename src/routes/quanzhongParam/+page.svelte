@@ -5,10 +5,14 @@
     let jiaquan = "";
     let jiaquanSize = 1;
     let jiaquanText = "";
+    /**
+     * @param {string} str
+     */
     function isUnderf(str) {
         return typeof str === "undefined";
     }
     onMount(() => {
+        // @ts-ignore
         prompt_map.subscribe((val) => (jiaquan = val["jiaquan"]));
         if (!isUnderf(jiaquan)) {
             let splitArray = jiaquan.split("--iw");

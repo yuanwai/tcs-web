@@ -4,10 +4,14 @@
     import { prompt_map, addItem, emptyItem } from "./../store.js";
     let zhongzi = 0 ;
     let zhongzi_prompt = "";
+    /**
+     * @param {string} str
+     */
     function isUnderf(str) {
         return typeof str === "undefined";
     }
     onMount(() => {
+        // @ts-ignore
         prompt_map.subscribe((val) => (zhongzi_prompt = val["zhongzi"]));
         if (!isUnderf(zhongzi_prompt)) {
             let splitArray = zhongzi_prompt.split(" ");
