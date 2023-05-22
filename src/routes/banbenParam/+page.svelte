@@ -6,6 +6,7 @@
    
     let mid_version = "";
     onMount(() => {
+       // @ts-ignore
        prompt_map.subscribe((val) => mid_version = val["banben"]);
     });
     function changeRadio() {

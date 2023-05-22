@@ -15,7 +15,7 @@
      * @type {any[]}
      */
     let valuesArray = [];
-   
+
     let activeComponent = "banben"; // 默认渲染字符串参数组件
     const components = {
         banben: banbenParam,
@@ -42,73 +42,147 @@
             <label class="text-lg font-bold">Prompt</label>
             <textarea
                 class="block w-full h-32 mt-2 border border-gray-300 rounded-md"
-                value={valuesArray.join(' ')}
+                value={valuesArray.join(" ")}
             />
         </div>
         <div class="flex-1 flex flex-row">
             <div class="flex-none w-64 p-4 border-r">
-                <div class="mb-4">
+                <div class="mb-4" >
                     <button class="w-full py-2 text-left hover:bg-gray-100"
                         >基本参数</button
                     >
-                    <div class="pl-4">
+                    <div class="pl-4 divide-y">
+                        <!-- param:version -->
                         {#if $prompt_map["banben"] == null}
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100"
-                            on:click={() => {
-                                activeComponent = "banben";
-                            }}>版本</button
-                        >
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100"
+                                on:click={() => {
+                                    activeComponent = "banben";
+                                }}>版本</button
+                            >
                         {:else}
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100 bg-sky-600"
-                            on:click={() => {
-                                activeComponent = "banben";
-                            }}>版本</button
-                        >
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                                on:click={() => {
+                                    activeComponent = "banben";
+                                }}>版本</button
+                            >
                         {/if}
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100"
-                            on:click={() => {
-                                activeComponent = "changkuanbi";
-                            }}>长宽比</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100"
-                            on:click={() => {
-                                activeComponent = "paichu";
-                            }}>排除(no)</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100"
-                            on:click={() => {
-                                activeComponent = "suiji";
-                            }}>随机程度</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100"
-                            on:click={() => {
-                                activeComponent = "fengge";
-                            }}>风格化程度</button
-                        >
+                        <!-- param:aspect ratios -->
+                        {#if $prompt_map["ckb"] == null}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100"
+                                on:click={() => {
+                                    activeComponent = "changkuanbi";
+                                }}>长宽比</button
+                            >
+                        {:else}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                                on:click={() => {
+                                    activeComponent = "changkuanbi";
+                                }}>长宽比</button
+                            >
+                        {/if}
+                        <!-- param:no -->
+                        {#if $prompt_map["paichu"] == null}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100"
+                                on:click={() => {
+                                    activeComponent = "paichu";
+                                }}>排除(no)</button
+                            >
+                        {:else}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                                on:click={() => {
+                                    activeComponent = "paichu";
+                                }}>排除(no)</button
+                            >
+                        {/if}
+
+                        <!-- param:chaos -->
+                        {#if $prompt_map["suiji"] == null}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100"
+                                on:click={() => {
+                                    activeComponent = "suiji";
+                                }}>随机程度</button
+                            >
+                        {:else}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                                on:click={() => {
+                                    activeComponent = "suiji";
+                                }}>随机程度</button
+                            >
+                        {/if}
+
+                        <!-- param:stylize -->
+                        {#if $prompt_map["fg"] == null}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100"
+                                on:click={() => {
+                                    activeComponent = "fengge";
+                                }}>风格化程度</button
+                            >
+                        {:else}
+                            <button
+                                class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                                on:click={() => {
+                                    activeComponent = "fengge";
+                                }}>风格化程度</button
+                            >
+                        {/if}
+
+                        <!-- param:quality -->
+                        {#if $prompt_map["xijie"] == null}
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100"
                             on:click={() => {
                                 activeComponent = "xijie";
                             }}>细节丰富度</button
                         >
+                        {:else}
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                            on:click={() => {
+                                activeComponent = "xijie";
+                            }}>细节丰富度</button
+                        >
+                        {/if}
+                        <!-- param:seed -->
+                        {#if $prompt_map["zhongzi"] == null}
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100"
                             on:click={() => {
                                 activeComponent = "zhongzi";
                             }}>种子(seed)</button
                         >
+                        {:else}
+                        <button
+                        class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                        on:click={() => {
+                            activeComponent = "zhongzi";
+                        }}>种子(seed)</button
+                    >
+                        {/if}
+                        <!-- param:iw -->
+                        {#if $prompt_map["jiaquan"] == null}
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100"
                             on:click={() => {
                                 activeComponent = "quanzhong";
                             }}>图片权重</button
                         >
+                        {:else}
+                        <button
+                        class="w-full py-2 text-left hover:bg-gray-100 bg-sky-300"
+                        on:click={() => {
+                            activeComponent = "quanzhong";
+                        }}>图片权重</button
+                    >
+                        {/if}
                     </div>
                 </div>
                 <div class="mb-4">

@@ -25,13 +25,14 @@
 <h2>风格化程度</h2>
 <div class="flex flex-col">
     <input
+    class="w-64"
         type="range"
         bind:value={styleSize}
         min="0"
         max="1000"
         on:change={changeRate}
     />
-    <input bind:value={styleSize} />
+    <input class="w-64 border-2 border-stone-400" bind:value={styleSize} on:input={changeRate}/>
 
     <button class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24" on:click={removeFg}
         >清空选择</button
