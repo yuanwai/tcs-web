@@ -60,5 +60,35 @@
         />
         v4
     </label>
+
+    <label>
+        <input
+            type="radio"
+            bind:group={mid_version}
+            on:change={changeRadio}
+            value={"--v 3"}
+        />
+        v3
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            bind:group={mid_version}
+            on:change={changeRadio}
+            value={"--v 2"}
+        />
+        v2
+    </label>
+
+    <label>
+        <input
+            type="radio"
+            bind:group={mid_version}
+            on:change={changeRadio}
+            value={"--v 1"}
+        />
+        v1
+    </label>
     <button class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24" on:click ={removeBanben}>清空选择</button>
 </div>

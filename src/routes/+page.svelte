@@ -10,6 +10,12 @@
     import zhongziParam from "./zhongziParam/+page.svelte";
     import quanzhongParam from "./quanzhongParam/+page.svelte";
 
+    import shejishiParam from "./shejishiParam/+page.svelte";
+    import sheyingshiParam from "./sheyingshiParam/+page.svelte";
+    import dengguangParam from "./dengguangParam/+page.svelte";
+    import dongmaParam from "./dongmanParam/+page.svelte";
+    import jingtouParam from "./jingtouParam/+page.svelte";
+
     // @ts-ignore
     import { prompt_map } from "./store.js";
     let prompt_str = "";
@@ -28,6 +34,13 @@
         xijie: xijieParam,
         zhongzi: zhongziParam,
         quanzhong: quanzhongParam,
+
+        shejishi : shejishiParam,
+        sheyingshi : sheyingshiParam,
+        dengguang : dengguangParam,
+        dongman : dongmaParam,
+        jingtou : jingtouParam
+        
     };
 
     // @ts-ignore
@@ -194,19 +207,36 @@
                     <button class="w-full py-2 text-left hover:bg-gray-100"
                         >高级参数</button
                     >
-                    <div class="pl-4">
+                    <div class="pl-4 divide-y">
+                        <!-- param : shejishi -->
                         <button class="w-full py-2 text-left hover:bg-gray-100"
-                            >设计师风格</button
+                        on:click={() => {
+                            activeComponent = "shejishi";
+                        }}>设计师风格</button
                         >
                         <button class="w-full py-2 text-left hover:bg-gray-100"
-                            >摄影师风格</button
+                        on:click={() => {
+                            activeComponent = "sheyingshi";
+                        }}>摄影师风格</button
                         >
                         <button class="w-full py-2 text-left hover:bg-gray-100"
-                            >灯光效果</button
+                        on:click={() => {
+                            activeComponent = "dongman";
+                        }}>动漫风格</button
+                        >
+                        <button class="w-full py-2 text-left hover:bg-gray-100"
+                        on:click={() => {
+                            activeComponent = "dengguang";
+                        }}>灯光效果</button
+                        >
+                        <button class="w-full py-2 text-left hover:bg-gray-100"
+                        on:click={() => {
+                            activeComponent = "jingtou";
+                        }}>镜头角度</button
                         >
                     </div>
                 </div>
-                <div class="mb-4">
+                <div class="mb-4 divide-y">
                     <button class="w-full py-2 text-left hover:bg-gray-100"
                         >专业用途</button
                     >
@@ -218,7 +248,7 @@
                             >模特换衣</button
                         >
                         <button class="w-full py-2 text-left hover:bg-gray-100"
-                            >ICON/LOGO设计</button
+                            >LOGO设计</button
                         >
                     </div>
                 </div>
