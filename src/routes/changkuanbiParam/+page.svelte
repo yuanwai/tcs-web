@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { marked } from "marked";
   // @ts-ignore
   import { prompt_map, addItem, emptyItem } from "./../store.js";
   let ck_bi = "";
@@ -13,10 +14,11 @@
   function removeCkb() {
     emptyItem("ckb");
   }
+  let markdown = marked.parse("This is a `SUPER` egg!");
 </script>
 
 <span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">选择长宽比</span>
-<div class="flex flex-col">
+<div class="flex flex-col mt-5">
   <label>
     <input
       type="radio"
@@ -24,7 +26,7 @@
       on:change={changeRadio}
       value={"--ar 1:1"}
     />
-    1:1
+    1:1 (默认)
   </label>
   <label>
     <input
@@ -76,6 +78,7 @@
     <p class="line-clamp-3">--aspect 5:4 常见的帧和打印比例。</p>
     <p class="line-clamp-3">--aspect 3:2 在印刷摄影中常见。</p>
     <p class="line-clamp-3">--aspect 7:4 接近高清电视屏幕和智能手机屏幕。</p>
+    <p>{@html markdown}</p>
     <div class="pt-5 border-2">
       <!-- svelte-ignore a11y-img-redundant-alt -->
       <img

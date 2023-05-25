@@ -26,8 +26,8 @@
     }
 </script>
 
-<h2>排除内容:</h2>
-<div class="flex flex-col">
+<span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">排除内容:</span>
+<div class="flex flex-col mt-5">
     <input class="w-64 border-2 border-stone-400"
         type="text"
         bind:value={paichu}

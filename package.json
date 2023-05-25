@@ -24,6 +24,7 @@
   },
   "type": "module",
   "dependencies": {
-    "daisyui": "^2.51.6"
+    "@types/marked": "^5.0.0",
+    "marked": "^5.0.2"
   }
 }
