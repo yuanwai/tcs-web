@@ -15,7 +15,7 @@
   }
 </script>
 
-<h2>选择长宽比</h2>
+<span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">选择长宽比</span>
 <div class="flex flex-col">
   <label>
     <input

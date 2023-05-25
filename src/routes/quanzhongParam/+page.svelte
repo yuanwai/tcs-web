@@ -30,9 +30,9 @@
 
 <h2>部分加权</h2>
 <div class="flex flex-col">
-    <label>需要调整权重的内容:</label>
+    <label for="">需要调整权重的内容:</label>
     <input class="w-32 border-2 border-s-orange-200" type="text" bind:value={jiaquanText}/>
-    <label>权重参数:</label>
+    <label for="">权重参数:</label>
     <input class="w-64 border-2 border-stone-400"
         type="number"
         bind:value={jiaquanSize}
