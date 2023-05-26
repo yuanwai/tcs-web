@@ -14,8 +14,8 @@
         emptyItem("xijie");
     }
 </script>
-<h2>选择细节（quality）</h2>
-<div class="flex flex-col">
+<span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">选择细节（quality）</span>
+<div class="flex flex-col mt-5">
     <label>
         <input type="radio" bind:group={xijie} on:change={changeRadio} value={"--quality .25"} />
         .25

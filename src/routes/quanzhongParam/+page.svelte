@@ -28,8 +28,8 @@
     }
 </script>
 
-<h2>部分加权</h2>
-<div class="flex flex-col">
+<span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">部分加权</span>
+<div class="flex flex-col mt-5">
     <label for="">需要调整权重的内容:</label>
     <input class="w-32 border-2 border-s-orange-200" type="text" bind:value={jiaquanText}/>
     <label for="">权重参数:</label>
