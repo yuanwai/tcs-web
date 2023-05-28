@@ -55,12 +55,12 @@
             <div class="flex flex-col w-8/12 p-4 border-b">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <div class="w-full flex-col">
-                    <label class="text-lg font-bold">自主输入内容</label>
+                    <label class="text-lg font-bold">想象力Prompt</label>
                     <div class="flex flex-row w-full">
                         <div class="w-10/12">
                             <textarea
-                                class="block w-full h-10 mt-2 border border-gray-300 rounded-md"
-                                placeholder="主要prompt，会自动翻译成英文..."
+                                class="block w-full h-10 mt-2 border border-gray-300 rounded-md pl-1 pt-2"
+                                placeholder="输入您的想象力，然后点击，翻译成英文..."
                             />
                         </div>
                         <div class="w-2/12 left-0">
@@ -75,7 +75,7 @@
                     <!-- svelte-ignore a11y-label-has-associated-control -->
                     <label class="text-lg font-bold">参数内容</label>
                     <textarea
-                        class="block w-full h-10 mt-2 border border-gray-300 rounded-md"
+                        class="block w-full h-10 mt-2 border border-gray-300 rounded-md pl-1 pt-2"
                         placeholder="调整的参数内容..."
                         value={valuesArray.join(" ")}
                     />

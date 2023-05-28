@@ -1,14 +1,14 @@
 <script>
     import { onMount } from "svelte";
-    import { marked } from 'marked';
+    import { marked } from "marked";
 
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
 
     let mid_version_number = 0;
     let mid_version = "";
-    let markdown =  marked.parse("# Hello world! \n *aaaa* **b**");
-    
+    let markdown = "";
+
     /**
      * @param {string} str
      */
@@ -22,6 +22,15 @@
             let splitArray = mid_version.split(" ");
             mid_version_number = Number(splitArray[splitArray.length - 1]);
         }
+
+        fetch("../md/version_51.md")
+            .then((response) => response.text())
+            .then((data) => {
+                markdown = data;
+            })
+            .catch((error) => {
+                console.error("Error fetching markdown file:", error);
+            });
     });
     function changeRadio() {
         addItem("banben", mid_version);
@@ -35,7 +44,8 @@
     <div class="w-4/12">
         <span
             class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
-            >选择Midjourney版本</span>
+            >选择Midjourney版本</span
+        >
         <div class="flex flex-col mt-8">
             <label>
                 <input
@@ -46,7 +56,15 @@
                 />
                 v5.1 (默认)
             </label>
-
+            <label>
+                <input
+                    type="radio"
+                    bind:group={mid_version}
+                    on:change={changeRadio}
+                    value={"--style raw"}
+                />
+                v5.1 style raw (v5.1的去除美学风格)
+            </label>
             <label>
                 <input
                     type="radio"
@@ -115,7 +133,8 @@
         </div>
     </div>
     <div class="w-8/12">
-        Midjourney定期发布新的模型版本以提高效率、连贯性和质量。最新的模型是默认的，但可以通过添加--version或--v参数或使用/settings命令并选择一个模型版本来使用其他模型。每个模型都擅长生成不同类型的图像。
-    {@html markdown}
+        <pre class="custom-pre w-11/12 p-4 whitespace-pre-wrap text-base">
+            {@html marked.parse(markdown)}
+        </pre>
     </div>
 </div>
