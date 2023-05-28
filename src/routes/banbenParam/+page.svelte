@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { marked } from "marked";
+    // import { marked } from "marked";
 
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
@@ -134,7 +134,7 @@
     </div>
     <div class="w-8/12">
         <pre class="custom-pre w-11/12 p-4 whitespace-pre-wrap text-base">
-            {@html marked.parse(markdown)}
+            <!-- {@html marked.parse(markdown)} -->
         </pre>
     </div>
 </div>
