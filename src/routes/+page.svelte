@@ -9,6 +9,9 @@
     import xijieParam from "./xijieParam/+page.svelte";
     import zhongziParam from "./zhongziParam/+page.svelte";
     import quanzhongParam from "./quanzhongParam/+page.svelte";
+    import repeatParam from "./repeatParam/+page.svelte";
+    import stopParam from "./stopParam/+page.svelte";
+    import tileParam  from "./tileParam/+page.svelte";
 
     import shejishiParam from "./shejishiParam/+page.svelte";
     import sheyingshiParam from "./sheyingshiParam/+page.svelte";
@@ -34,6 +37,9 @@
         xijie: xijieParam,
         zhongzi: zhongziParam,
         quanzhong: quanzhongParam,
+        repeat: repeatParam,
+        stop: stopParam,
+        tile: tileParam,
 
         shejishi: shejishiParam,
         sheyingshi: sheyingshiParam,
@@ -190,6 +196,42 @@
                                 activeComponent = "quanzhong";
                             }}
                             >图片权重 (Image Weight) {#if $prompt_map["jiaquan"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+
+                        <!-- param:stop -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "stop";
+                            }}
+                            >完成度（stop）  {#if $prompt_map["stop"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+
+                        <!-- param:tile -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "tile";
+                            }}
+                            >图案循环（tile）  {#if $prompt_map["tile"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+
+                        <!-- param:repeat -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "repeat";
+                            }}
+                            >批量生成（repeat）  {#if $prompt_map["repeat"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
