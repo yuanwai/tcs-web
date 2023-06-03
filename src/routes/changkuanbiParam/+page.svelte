@@ -7,6 +7,15 @@
   onMount(() => {
     // @ts-ignore
     prompt_map.subscribe((val) => (ck_bi = val["ckb"]));
+
+    fetch("../md/ar.md")
+            .then((response) => response.text())
+            .then((data) => {
+                markdown = data;
+            })
+            .catch((error) => {
+                console.error("Error fetching markdown file:", error);
+            });
   });
   function changeRadio() {
     addItem("ckb", ck_bi);
@@ -17,6 +26,9 @@
   let markdown = marked.parse("This is a `SUPER` egg!");
 </script>
 
+
+<div class="flex flex-row">
+    <div class="w-4/12">
 <span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">选择长宽比</span>
 <div class="flex flex-col mt-5">
   <label>
@@ -70,22 +82,11 @@
     >清空选择</button
   >
 </div>
-<div class="flex flex-col pt-5">
-  <article class="border-2 pt-2 pl-2">
-    <time>长宽比说明</time>
-    <h3>以下是常见的长宽比例</h3>
-    <p class="line-clamp-3">--aspect 1:1 默认的宽高比。</p>
-    <p class="line-clamp-3">--aspect 5:4 常见的帧和打印比例。</p>
-    <p class="line-clamp-3">--aspect 3:2 在印刷摄影中常见。</p>
-    <p class="line-clamp-3">--aspect 7:4 接近高清电视屏幕和智能手机屏幕。</p>
-    <p>{@html markdown}</p>
-    <div class="pt-5 border-2">
-      <!-- svelte-ignore a11y-img-redundant-alt -->
-      <img
-        src="../images/base/MJ_AspectRatioChart.png"
-        alt="ar's example image"
-        class="w-2/3"
-      />
+</div>
+ <div class="w-8/12 h-screen">
+        <label class="text-2xl" for="">Aspect Ratio教程</label>
+        <pre class="w-11/12 p-4 whitespace-pre-wrap h-4/5 overflow-y-scroll">
+            {@html marked.parse(markdown)}
+        </pre>
     </div>
-  </article>
 </div>

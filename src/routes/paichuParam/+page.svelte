@@ -1,9 +1,12 @@
 <script>
     import { onMount } from "svelte";
+    import { marked } from "marked";
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
+
     let paichu = "";
     let paichu_prompt = "";
+    let markdown = "";
     /**
      * @param {string} str
      */
@@ -17,6 +20,15 @@
             let splitArray = paichu_prompt.split(" ");
             paichu = splitArray[splitArray.length - 1];
         }
+
+        fetch("../md/no.md")
+            .then((response) => response.text())
+            .then((data) => {
+                markdown = data;
+            })
+            .catch((error) => {
+                console.error("Error fetching markdown file:", error);
+            });
     });
     function changeRate() {
         addItem("paichu", "--no " + paichu);
@@ -26,15 +38,30 @@
     }
 </script>
 
-<span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">排除内容:</span>
-<div class="flex flex-col mt-5">
-    <input class="w-64 border-2 border-stone-400"
-        type="text"
-        bind:value={paichu}
-        on:input ={changeRate}
-    />
+<div class="flex flex-row">
+    <div class="w-4/12">
+        <span
+            class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
+            >排除内容:</span
+        >
+        <div class="flex flex-col mt-5">
+            <input
+                class="w-64 border-2 border-stone-400"
+                type="text"
+                bind:value={paichu}
+                on:input={changeRate}
+            />
 
-    <button class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24" on:click={removeNo}
-        >清空选择</button
-    >
+            <button
+                class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24"
+                on:click={removeNo}>清空选择</button
+            >
+        </div>
+    </div>
+    <div class="w-8/12 h-screen">
+        <label class="text-2xl" for="">排除部分内容的参数设置</label>
+        <pre class="w-11/12 p-4 whitespace-pre-wrap h-4/5 overflow-y-scroll">
+            {@html marked.parse(markdown)}
+        </pre>
+    </div>
 </div>
