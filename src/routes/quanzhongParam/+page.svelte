@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import { marked } from "marked";
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
     let jiaquan = "";
