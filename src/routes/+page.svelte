@@ -235,6 +235,54 @@
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
+
+                        <!-- param:light -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "dengguang";
+                            }}
+                            >灯光（Light）  {#if $prompt_map["light"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+
+                        <!-- param:anime -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "dongman";
+                            }}
+                            >动漫（Anime）  {#if $prompt_map["anime"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+
+                        <!-- param:cameralens -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "jingtou";
+                            }}
+                            >镜头（Camera & Lens）  {#if $prompt_map["cameralens"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+
+                         <!-- param:artist -->
+
+                         <button
+                         class="w-full py-2 text-left hover:bg-gray-100 relative"
+                         on:click={() => {
+                             activeComponent = "shejishi";
+                         }}
+                         >设计师（Artist）  {#if $prompt_map["artist"] != null}<button
+                                 class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                             />{/if}</button
+                     >
                     </div>
                 </div>
                 <div class="mb-4">

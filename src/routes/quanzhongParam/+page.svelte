@@ -6,6 +6,7 @@
     let jiaquan = "";
     let jiaquanSize = 1;
     let jiaquanText = "";
+    let markdown = "";
     /**
      * @param {string} str
      */
@@ -20,6 +21,15 @@
             jiaquanSize = Number(splitArray[splitArray.length - 1]);
             jiaquanText = splitArray[0]
         }
+
+        fetch("../md/iw.md")
+            .then((response) => response.text())
+            .then((data) => {
+                markdown = data;
+            })
+            .catch((error) => {
+                console.error("Error fetching markdown file:", error);
+            });
     });
     function changeRate() {
         addItem("jiaquan", jiaquanText+ " --iw " + jiaquanSize);
@@ -29,6 +39,8 @@
     }
 </script>
 
+<div class="flex flex-row">
+    <div class="w-2/12">
 <span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">部分加权</span>
 <div class="flex flex-col mt-5">
     <label for="">需要调整权重的内容:</label>
@@ -47,4 +59,11 @@
     <button class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24" on:click={removeJiaquan}
         >清空选择</button
     >
+    </div>
+    </div>
+    <div class="w-10/12 h-screen">
+        <article class="prose h-4/5 overflow-y-scroll">
+            {@html marked.parse(markdown)}
+        </article>
+    </div>
 </div>

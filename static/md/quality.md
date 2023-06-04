@@ -1,6 +1,4 @@
-# Quality
-
-#### 
+# Quality 细节
 
 #### `——quality`或`——q `参数改变生成图像所花费的时间。
 
@@ -17,9 +15,8 @@
 
 ------
 
-## The Influence of Quality on Jobs
+## Quality对作业的影响
 
-Higher `--quality` settings aren't always better. Sometimes a lower `--quality` settings can produce better results—depending on the image you're trying to create. Lower `--quality` settings might be best for a gestural abstract look. Higher `--quality` values may improve the look of architectural images that benefit from many details. Choose the setting that best matches the kind of image you're hoping to create.
 
 更高的`--quality` 设置并不总是更好。有时，较低的`--quality` 设置可以产生更好的结果，这取决于你想要创建的图像。较低的`--quality` 设置可能最适合抽象的感官，更高的`--quality`值可能会在细节方面改善图像的感官。选择最符合你希望的设置就好。
 

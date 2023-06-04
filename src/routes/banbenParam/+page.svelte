@@ -41,7 +41,7 @@
 </script>
 
 <div class="flex flex-row">
-    <div class="w-4/12">
+    <div class="w-2/12">
         <span
             class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
             >选择Midjourney版本</span
@@ -132,10 +132,9 @@
             >
         </div>
     </div>
-    <div class="w-8/12 h-screen">
-        <label class="text-2xl" for="">Version教程</label>
-        <pre class="w-11/12 p-4 whitespace-pre-wrap h-4/5 overflow-y-scroll">
+    <div class="w-10/12 h-screen">
+        <article class="prose h-4/5 overflow-y-scroll">
             {@html marked.parse(markdown)}
-        </pre>
+        </article>
     </div>
 </div>
