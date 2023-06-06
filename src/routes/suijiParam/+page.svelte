@@ -38,7 +38,7 @@
 </script>
 
 <div class="flex flex-row">
-    <div class="w-2/12">
+    <div class="w-4/12">
         <span
             class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
             >随机程度:</span
@@ -66,7 +66,7 @@
             >
         </div>
     </div>
-    <div class="w-10/12 h-screen">
+    <div class="w-8/12 h-screen">
         <article class="prose h-4/5 overflow-y-scroll">
             {@html marked.parse(markdown)}
         </article>

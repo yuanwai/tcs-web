@@ -1,6 +1,7 @@
 <script>
     // @ts-nocheck
     // All compenonents import
+    import header from "./header/+layout.svelte";
     import banbenParam from "./banbenParam/+page.svelte";
     import changkuanbiParam from "./changkuanbiParam/+page.svelte";
     import paichuParam from "./paichuParam/+page.svelte";
@@ -11,7 +12,7 @@
     import quanzhongParam from "./quanzhongParam/+page.svelte";
     import repeatParam from "./repeatParam/+page.svelte";
     import stopParam from "./stopParam/+page.svelte";
-    import tileParam  from "./tileParam/+page.svelte";
+    import tileParam from "./tileParam/+page.svelte";
 
     import shejishiParam from "./shejishiParam/+page.svelte";
     import sheyingshiParam from "./sheyingshiParam/+page.svelte";
@@ -54,9 +55,43 @@
         valuesArray = Object.values($prompt_map);
     }
 </script>
-
 <template>
     <div class="flex flex-col h-screen">
+        <nav class="bg-white border-solid border-1 border-indigo-600">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between w-full">
+                    <div class="flex ">
+                        <div class="flex-shrink-0">
+                            <img
+                                class="h-10 w-10"
+                                src="./images/favicon/a.svg?color=indigo&shade=500"
+                                alt="土猛调参"
+                            />
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a
+                                    href="/"
+                                    class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    aria-current="page">首页</a
+                                >
+                                <a
+                                    href="http://blog.tiaocanshu.com"
+                                    class="text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    >blog</a
+                                >
+                                <a
+                                    href="http://blog.tiaocanshu.com/about"
+                                    class="text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    >关于我们</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="flex flex-row w-full">
             <div class="flex flex-col w-8/12 p-4 border-b">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
@@ -97,7 +132,7 @@
             </div>
         </div>
         <div class="flex-1 flex flex-row">
-            <div class="flex-none w-64 p-4 border-r">
+            <div class="flex-none w-48 p-4 border-r">
                 <div class="mb-4">
                     <button class="w-full py-2 text-left hover:bg-gray-100"
                         >基本参数</button
@@ -109,7 +144,7 @@
                             on:click={() => {
                                 activeComponent = "banben";
                             }}
-                            >版本 (Version)
+                            >版本(V)
                             {#if $prompt_map["banben"] != null}
                                 <button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
@@ -122,7 +157,7 @@
                             on:click={() => {
                                 activeComponent = "changkuanbi";
                             }}
-                            >长宽比 (Aspect Ratios)
+                            >长宽比(AR))
                             {#if $prompt_map["ckb"] != null}
                                 <button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
@@ -135,7 +170,7 @@
                             on:click={() => {
                                 activeComponent = "paichu";
                             }}
-                            >排除 (No)
+                            >排除(No))
                             {#if $prompt_map["paichu"] != null}
                                 <button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
@@ -148,7 +183,7 @@
                             on:click={() => {
                                 activeComponent = "suiji";
                             }}
-                            >随机程度 (Chaos){#if $prompt_map["suiji"] != null}
+                            >随机(Chaos){#if $prompt_map["suiji"] != null}
                                 <button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />
@@ -161,7 +196,7 @@
                             on:click={() => {
                                 activeComponent = "fengge";
                             }}
-                            >风格化程度 (Stylize){#if $prompt_map["fg"] != null}<button
+                            >美化(Stylize){#if $prompt_map["fg"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -172,7 +207,7 @@
                             on:click={() => {
                                 activeComponent = "xijie";
                             }}
-                            >细节丰富度 (Quality){#if $prompt_map["xijie"] != null}<button
+                            >质量(Quality){#if $prompt_map["xijie"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -184,7 +219,7 @@
                             on:click={() => {
                                 activeComponent = "zhongzi";
                             }}
-                            >种子 (Seed){#if $prompt_map["zhongzi"] != null}<button
+                            >种子(Seed){#if $prompt_map["zhongzi"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -195,7 +230,7 @@
                             on:click={() => {
                                 activeComponent = "quanzhong";
                             }}
-                            >图片权重 (Image Weight) {#if $prompt_map["jiaquan"] != null}<button
+                            >图片权重(IW) {#if $prompt_map["jiaquan"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -207,7 +242,7 @@
                             on:click={() => {
                                 activeComponent = "stop";
                             }}
-                            >完成度（stop）  {#if $prompt_map["stop"] != null}<button
+                            >完成度(stop) {#if $prompt_map["stop"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -219,7 +254,7 @@
                             on:click={() => {
                                 activeComponent = "tile";
                             }}
-                            >图案循环（tile）  {#if $prompt_map["tile"] != null}<button
+                            >图案循环(tile) {#if $prompt_map["tile"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -231,7 +266,7 @@
                             on:click={() => {
                                 activeComponent = "repeat";
                             }}
-                            >批量生成（repeat）  {#if $prompt_map["repeat"] != null}<button
+                            >批量(repeat) {#if $prompt_map["repeat"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -243,7 +278,7 @@
                             on:click={() => {
                                 activeComponent = "dengguang";
                             }}
-                            >灯光（Light）  {#if $prompt_map["light"] != null}<button
+                            >灯光(Light) {#if $prompt_map["light"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -255,7 +290,7 @@
                             on:click={() => {
                                 activeComponent = "dongman";
                             }}
-                            >动漫（Anime）  {#if $prompt_map["anime"] != null}<button
+                            >动漫(Anime){#if $prompt_map["anime"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -267,22 +302,22 @@
                             on:click={() => {
                                 activeComponent = "jingtou";
                             }}
-                            >镜头（Camera & Lens）  {#if $prompt_map["cameralens"] != null}<button
+                            >镜头(Camera) {#if $prompt_map["cameralens"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
 
-                         <!-- param:artist -->
+                        <!-- param:artist -->
 
-                         <button
-                         class="w-full py-2 text-left hover:bg-gray-100 relative"
-                         on:click={() => {
-                             activeComponent = "shejishi";
-                         }}
-                         >设计师（Artist）  {#if $prompt_map["artist"] != null}<button
-                                 class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
-                             />{/if}</button
-                     >
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "shejishi";
+                            }}
+                            >设计师(Artist) {#if $prompt_map["artist"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
                     </div>
                 </div>
                 <div class="mb-4">

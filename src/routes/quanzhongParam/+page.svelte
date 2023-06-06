@@ -19,7 +19,7 @@
         if (!isUnderf(jiaquan)) {
             let splitArray = jiaquan.split("--iw");
             jiaquanSize = Number(splitArray[splitArray.length - 1]);
-            jiaquanText = splitArray[0]
+            jiaquanText = splitArray[0];
         }
 
         fetch("../md/iw.md")
@@ -32,7 +32,7 @@
             });
     });
     function changeRate() {
-        addItem("jiaquan", jiaquanText+ " --iw " + jiaquanSize);
+        addItem("jiaquan", jiaquanText + " --iw " + jiaquanSize);
     }
     function removeJiaquan() {
         emptyItem("jiaquan");
@@ -40,28 +40,37 @@
 </script>
 
 <div class="flex flex-row">
-    <div class="w-2/12">
-<span class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl">部分加权</span>
-<div class="flex flex-col mt-5">
-    <label for="">需要调整权重的内容:</label>
-    <input class="w-32 border-2 border-s-orange-200" type="text" bind:value={jiaquanText}/>
-    <label for="">权重参数:</label>
-    <input class="w-64 border-2 border-stone-400"
-        type="number"
-        bind:value={jiaquanSize}
-        min="0.5"
-        max="2"
-        step="0.25"
-        on:change={changeRate}
-    />
-    <!-- <input class="w-64 border-2 border-stone-400" bind:value={jiaquanSize} on:input={changeRate}/> -->
+    <div class="w-4/12">
+        <span
+            class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
+            >部分加权</span
+        >
+        <div class="flex flex-col mt-5">
+            <label for="">需要调整权重的内容:</label>
+            <input
+                class="w-32 border-2 border-s-orange-200"
+                type="text"
+                bind:value={jiaquanText}
+            />
+            <label for="">权重参数:</label>
+            <input
+                class="w-64 border-2 border-stone-400"
+                type="number"
+                bind:value={jiaquanSize}
+                min="0.5"
+                max="2"
+                step="0.25"
+                on:change={changeRate}
+            />
+            <!-- <input class="w-64 border-2 border-stone-400" bind:value={jiaquanSize} on:input={changeRate}/> -->
 
-    <button class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24" on:click={removeJiaquan}
-        >清空选择</button
-    >
+            <button
+                class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24"
+                on:click={removeJiaquan}>清空选择</button
+            >
+        </div>
     </div>
-    </div>
-    <div class="w-10/12 h-screen">
+    <div class="w-8/12 h-screen">
         <article class="prose h-4/5 overflow-y-scroll">
             {@html marked.parse(markdown)}
         </article>
