@@ -67,7 +67,7 @@
         </div>
     </div>
     <div class="w-8/12 h-screen">
-        <article class="prose h-4/5 overflow-y-scroll">
+        <article class="prose h-4/5 overflow-y-scroll p-3">
             {@html marked.parse(markdown)}
         </article>
     </div>

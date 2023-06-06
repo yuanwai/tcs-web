@@ -92,7 +92,7 @@
             </div>
         </nav>
         <div class="flex flex-row w-full">
-            <div class="flex flex-col w-8/12 p-4 border-b">
+            <div class="flex flex-col w-6/12 p-4 border-b">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <div class="w-full flex-col">
                     <label class="text-lg font-bold">想象力Prompt</label>
@@ -121,7 +121,7 @@
                     />
                 </div>
             </div>
-            <div class="w-4/12 flex flex-row p-4">
+            <div class="w-2/12 flex flex-row p-4">
                 <div class="w-full">
                     <button
                         class="w-1/2 h-full text-white rounded bg-indigo-500 hover:bg-cyan-600 shadow-lg font-medium"
