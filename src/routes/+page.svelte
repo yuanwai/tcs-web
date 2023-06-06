@@ -1,7 +1,6 @@
 <script>
     // @ts-nocheck
     // All compenonents import
-    import header from "./header/+layout.svelte";
     import banbenParam from "./banbenParam/+page.svelte";
     import changkuanbiParam from "./changkuanbiParam/+page.svelte";
     import paichuParam from "./paichuParam/+page.svelte";
@@ -386,3 +385,4 @@
         </div>
     </div>
 </template>
+
