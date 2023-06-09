@@ -55,4 +55,10 @@
 
 
 
-prompt example: `/imagine prompt` `flowers.jpg birthday cake --iw .5`
+prompt 示例: `/imagine prompt` `flowers.jpg birthday cake --iw .5`
+
+![iw](../images/base/iw/iw.png)
+
+
+
+

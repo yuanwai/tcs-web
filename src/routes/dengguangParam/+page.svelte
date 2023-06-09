@@ -1,3 +1,211 @@
 <script>
+    import { onMount } from "svelte";
+    import { marked } from "marked";
 
+    // @ts-ignore
+    import { prompt_map, addItem, emptyItem } from "./../store.js";
+
+    let lightText = "";
+    let markdown = "";
+
+    /**
+     * @param {string} str
+     */
+    function isUnderf(str) {
+        return typeof str === "undefined";
+    }
+    onMount(() => {
+        // @ts-ignore
+        prompt_map.subscribe((val) => (lightText = val["dengguang"]));
+      
+
+        fetch("../md/light.md")
+            .then((response) => response.text())
+            .then((data) => {
+                markdown = data;
+            })
+            .catch((error) => {
+                console.error("Error fetching markdown file:", error);
+            });
+    });
+    function changeRadio() {
+        addItem("dengguang", lightText);
+    }
+    function removeBanben() {
+        emptyItem("dengguang");
+    }
 </script>
+
+<div class="flex flex-row">
+    <div class="w-4/12">
+        <span
+            class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
+            >选择灯光效果</span
+        >
+        <div class="flex flex-col mt-8">
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Mood Lighting "}
+                />
+                Mood Lighting（氛围灯）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Moody Lighting "}
+                />
+                Moody Lighting (情绪灯)
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Studio Lighting "}
+                />
+                Studio Lighting（工作室灯光）
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Cove Lighting "}
+                />
+                Cove Lighting（壁角灯）
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Soft Lighting "}
+                />
+                Soft Lighting（柔和照明）
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Hard Lighting "}
+                />
+                Hard Lighting（硬朗照明）
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Volumetric Lighting "}
+                />
+                Volumetric Lighting（体积光）
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Low-Key Lighting "}
+                />
+                Low-Key Lighting（低键照明）
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" High-Key Lighting "}
+                />
+                High-Key Lighting（高键照明）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Epic Lighting "}
+                />
+                Epic Lighting（史诗光线）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Rembrandt Lighting "}
+                />
+                Rembrandt Lighting（伦勃朗特效）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Veiling Flare "}
+                />
+                Veiling Flare（透明毛玻璃）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Rays of Shimmering Light "}
+                />
+                Rays of Shimmering Light（闪烁光线）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Godrays "}
+                />
+                Godrays（神光）
+            </label>
+
+
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Conter-Jour "}
+                />
+                Conter-Jour（逆光照明）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Conter-Jour "}
+                />
+                Conter-Jour（逆光照明）
+            </label>
+            
+
+            <button
+                class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24"
+                on:click={removeBanben}>清空选择</button
+            >
+        </div>
+    </div>
+    <div class="w-8/12 h-screen">
+        <article class="prose  prose-code:bg-gray-200 h-4/5 overflow-y-scroll p-3">
+            {@html marked.parse(markdown)}
+        </article>
+    </div>
+</div>

@@ -52,7 +52,7 @@
                 max="4294967295"
                 placeholder="在这里输入seed"
             />
-
+            <p class="pt-3 text-sm text-orange-300">如何获得seed，请参见右侧说明.</p>
             <button
                 class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24"
                 on:click={removeSeed}>清空选择</button

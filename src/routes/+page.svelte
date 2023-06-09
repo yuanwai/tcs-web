@@ -64,7 +64,7 @@
                             <img
                                 class="h-10 w-10"
                                 src="./images/favicon/a.svg?color=indigo&shade=500"
-                                alt="土猛调参"
+                                alt="土猛调参——Midjourney参数工具"
                             />
                         </div>
                         <div class="hidden md:block">
@@ -73,7 +73,7 @@
                                 <a
                                     href="/"
                                     class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                                    aria-current="page">首页</a
+                                    aria-current="page">土猛调参</a
                                 >
                                 <a
                                     href="http://blog.tiaocanshu.com"
@@ -270,6 +270,14 @@
                                 />{/if}</button
                         >
 
+                        
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button class="w-full py-2 text-left hover:bg-gray-100"
+                        >高级参数</button
+                    >
+                    <div class="pl-4 divide-y">
                         <!-- param:light -->
 
                         <button
@@ -319,44 +327,6 @@
                         >
                     </div>
                 </div>
-                <div class="mb-4">
-                    <button class="w-full py-2 text-left hover:bg-gray-100"
-                        >高级参数</button
-                    >
-                    <div class="pl-4 divide-y">
-                        <!-- param : shejishi -->
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            on:click={() => {
-                                activeComponent = "shejishi";
-                            }}>设计师风格</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            on:click={() => {
-                                activeComponent = "sheyingshi";
-                            }}>摄影师风格</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            on:click={() => {
-                                activeComponent = "dongman";
-                            }}>动漫风格</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            on:click={() => {
-                                activeComponent = "dengguang";
-                            }}>灯光效果</button
-                        >
-                        <button
-                            class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            on:click={() => {
-                                activeComponent = "jingtou";
-                            }}>镜头角度</button
-                        >
-                    </div>
-                </div>
                 <div class="mb-4 divide-y">
                     <button class="w-full py-2 text-left hover:bg-gray-100"
                         >专业用途</button
@@ -364,15 +334,15 @@
                     <div class="pl-4">
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            >人物制作</button
+                            >人物制作(soon)</button
                         >
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            >模特换衣</button
+                            >模特换衣(soon)</button
                         >
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100 relative"
-                            >LOGO设计</button
+                            >LOGO设计(soon))</button
                         >
                     </div>
                 </div>

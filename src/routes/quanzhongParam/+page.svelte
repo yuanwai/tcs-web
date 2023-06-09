@@ -4,6 +4,7 @@
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
     let jiaquan = "";
+    let imgurl = "";
     let jiaquanSize = 1;
     let jiaquanText = "";
     let markdown = "";
@@ -32,7 +33,7 @@
             });
     });
     function changeRate() {
-        addItem("jiaquan", jiaquanText + " --iw " + jiaquanSize);
+        addItem("jiaquan", imgurl + " " + jiaquanText + " --iw " + jiaquanSize);
     }
     function removeJiaquan() {
         emptyItem("jiaquan");
@@ -46,10 +47,16 @@
             >部分加权</span
         >
         <div class="flex flex-col mt-5">
-            <label for="">需要调整权重的内容:</label>
+            <label for="">上传的图片URL:</label>
+            <input
+                class="w-64 border-2 border-s-orange-200"
+                type="text" placeholder="填写上传图片的url"
+                bind:value={imgurl}
+            />
+            <label for="">需调整的内容:</label>
             <input
                 class="w-32 border-2 border-s-orange-200"
-                type="text"
+                type="text" placeholder="如蛋糕"
                 bind:value={jiaquanText}
             />
             <label for="">权重参数:</label>
