@@ -37,12 +37,93 @@
 </script>
 
 <div class="flex flex-row">
-    <div class="w-4/12">
+    <div class="w-3/12">
         <span
             class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
             >选择灯光效果</span
         >
         <div class="flex flex-col mt-8">
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Back Lighting "}
+                />
+                Back Lighting（逆光）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Beautiful Lighting "}
+                />
+                Beautiful Lighting（魅力光线）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Bright Lighting "}
+                />
+                Bright Lighting（明亮采光）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Cold Lighting "}
+                />
+                Cold Lighting（冷色光线）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Cove Lighting "}
+                />
+                Cove Lighting（壁角灯）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Dramatic Lighting "}
+                />
+                Dramatic Lighting（舞台灯光）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Gold Hour Lighting "}
+                />
+                Gold Hour Lighting（余晖晚霞）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Hard Lighting "}
+                />
+                Hard Lighting（硬朗照明）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Low-Key Lighting "}
+                />
+                Low-Key Lighting（低键照明）
+            </label>
             <label>
                 <input
                     type="radio"
@@ -66,19 +147,18 @@
                     type="radio"
                     bind:group={lightText}
                     on:change={changeRadio}
-                    value={" Studio Lighting "}
+                    value={" Morning Lighting "}
                 />
-                Studio Lighting（工作室灯光）
+                Morning Lighting (晨光)
             </label>
-
             <label>
                 <input
                     type="radio"
                     bind:group={lightText}
                     on:change={changeRadio}
-                    value={" Cove Lighting "}
+                    value={" Neon Lighting "}
                 />
-                Cove Lighting（壁角灯）
+                Neon Lighting（霓虹灯照明）
             </label>
 
             <label>
@@ -90,17 +170,25 @@
                 />
                 Soft Lighting（柔和照明）
             </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Strobe Lighting "}
+                />
+                Strobe Lighting（闪光灯）
+            </label>
 
             <label>
                 <input
                     type="radio"
                     bind:group={lightText}
                     on:change={changeRadio}
-                    value={" Hard Lighting "}
+                    value={" Studio Lighting "}
                 />
-                Hard Lighting（硬朗照明）
+                Studio Lighting（工作室灯光）
             </label>
-
             <label>
                 <input
                     type="radio"
@@ -110,15 +198,23 @@
                 />
                 Volumetric Lighting（体积光）
             </label>
-
             <label>
                 <input
                     type="radio"
                     bind:group={lightText}
                     on:change={changeRadio}
-                    value={" Low-Key Lighting "}
+                    value={" Crepuscular Rays "}
                 />
-                Low-Key Lighting（低键照明）
+                Crepuscular Rays（黄昏光）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Sunbeams "}
+                />
+                Sunbeams（早晨金色的阳光）
             </label>
 
             <label>
@@ -126,18 +222,9 @@
                     type="radio"
                     bind:group={lightText}
                     on:change={changeRadio}
-                    value={" High-Key Lighting "}
+                    value={" Shimmering Light "}
                 />
-                High-Key Lighting（高键照明）
-            </label>
-            <label>
-                <input
-                    type="radio"
-                    bind:group={lightText}
-                    on:change={changeRadio}
-                    value={" Epic Lighting "}
-                />
-                Epic Lighting（史诗光线）
+                Shimmering Light（闪光的夜）
             </label>
             <label>
                 <input
@@ -175,8 +262,6 @@
                 />
                 Godrays（神光）
             </label>
-
-
             <label>
                 <input
                     type="radio"
@@ -191,11 +276,37 @@
                     type="radio"
                     bind:group={lightText}
                     on:change={changeRadio}
-                    value={" Conter-Jour "}
+                    value={" Bioluminescence "}
                 />
-                Conter-Jour（逆光照明）
+                Bioluminescence（生物发光）
             </label>
-            
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Overcast "}
+                />
+                Overcast（阴天光线）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Blue Hour "}
+                />
+                Blue Hour（蓝光时刻）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={lightText}
+                    on:change={changeRadio}
+                    value={" Torchlit "}
+                />
+                Torchlit（烛火光线）
+            </label>
 
             <button
                 class="mt-6 bg-cyan-500 hover:bg-cyan-600 w-24"
@@ -203,7 +314,7 @@
             >
         </div>
     </div>
-    <div class="w-8/12 h-screen">
+    <div class="w-9/12 h-screen">
         <article class="prose  prose-code:bg-gray-200 h-4/5 overflow-y-scroll p-3">
             {@html marked.parse(markdown)}
         </article>
