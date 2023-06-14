@@ -54,12 +54,13 @@
         valuesArray = Object.values($prompt_map);
     }
 </script>
+
 <template>
     <div class="flex flex-col h-screen">
         <nav class="bg-white border-solid border-1 border-indigo-600">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between w-full">
-                    <div class="flex ">
+                    <div class="flex">
                         <div class="flex-shrink-0">
                             <img
                                 class="h-10 w-10"
@@ -269,8 +270,6 @@
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
-
-                        
                     </div>
                 </div>
                 <div class="mb-4">
@@ -351,8 +350,9 @@
                 <div class="mb-4">
                     <svelte:component this={component} />
                 </div>
+                    <span class="place-self-center">&copy 2023 MGN Tech. | ICP证: <a href="https://beian.miit.gov.cn/" target="_blank"
+                            >浙ICP备2023015070号-1</a></span>
             </div>
         </div>
     </div>
 </template>
-
