@@ -14,6 +14,7 @@
     import tileParam from "./tileParam/+page.svelte";
 
     import shejishiParam from "./shejishiParam/+page.svelte";
+    import artistParam from "./artist/+page.svelte";
     import sheyingshiParam from "./sheyingshiParam/+page.svelte";
     import dengguangParam from "./dengguangParam/+page.svelte";
     import dongmaParam from "./dongmanParam/+page.svelte";
@@ -46,6 +47,7 @@
         dengguang: dengguangParam,
         dongman: dongmaParam,
         jingtou: jingtouParam,
+        artist: artistParam,
     };
 
     // @ts-ignore
@@ -312,21 +314,31 @@
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
-
                         <!-- param:artist -->
+
+                        <button
+                            class="w-full py-2 text-left hover:bg-gray-100 relative"
+                            on:click={() => {
+                                activeComponent = "artist";
+                            }}
+                            >艺术家(Artist) {#if $prompt_map["artist"] != null}<button
+                                    class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
+                                />{/if}</button
+                        >
+                        <!-- param:designer -->
 
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100 relative"
                             on:click={() => {
                                 activeComponent = "shejishi";
                             }}
-                            >设计师(Artist) {#if $prompt_map["artist"] != null}<button
+                            >设计师(Designer) {#if $prompt_map["designer"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
                     </div>
                 </div>
-                <div class="mb-4 divide-y">
+                <!-- <div class="mb-4 divide-y">
                     <button class="w-full py-2 text-left hover:bg-gray-100"
                         >专业用途</button
                     >
@@ -344,14 +356,18 @@
                             >LOGO设计(soon))</button
                         >
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="flex-1 p-4">
                 <div class="mb-4">
                     <svelte:component this={component} />
                 </div>
-                    <span class="place-self-center">&copy 2023 MGN Tech. | ICP证: <a href="https://beian.miit.gov.cn/" target="_blank"
-                            >浙ICP备2023015070号-1</a></span>
+                <span class="place-self-center"
+                    >&copy 2023 MGN Tech. | ICP证: <a
+                        href="https://beian.miit.gov.cn/"
+                        target="_blank">浙ICP备2023015070号-1</a
+                    ></span
+                >
             </div>
         </div>
     </div>

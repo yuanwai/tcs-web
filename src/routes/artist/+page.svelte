@@ -5,7 +5,7 @@
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
 
-    let compositionText = "";
+    let artistText = "";
     let markdown = "";
 
     /**
@@ -16,10 +16,10 @@
     }
     onMount(() => {
         // @ts-ignore
-        prompt_map.subscribe((val) => (compositionText = val["jingtou"]));
+        prompt_map.subscribe((val) => (artistText = val["artist"]));
       
 
-        fetch("../md/composition.md")
+        fetch("../md/artist.md")
             .then((response) => response.text())
             .then((data) => {
                 markdown = data;
@@ -29,10 +29,10 @@
             });
     });
     function changeRadio() {
-        addItem("jingtou", compositionText);
+        addItem("artist", artistText);
     }
     function removeBanben() {
-        emptyItem("jingtou");
+        emptyItem("artist");
     }
 </script>
 
@@ -40,85 +40,76 @@
     <div class="w-3/12">
         <span
             class="box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 py-1 text-2xl"
-            >选择镜头视角</span
+            >选择艺术家风格</span
         >
         <div class="flex flex-col mt-8">
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Bird View "}
+                    value={" Claude Monet "}
                 />
-                Bird View（鸟瞰）
+                Claude Monet（莫奈）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Close Up "}
+                    value={" Jackson Pollock "}
                 />
-                Beautiful Lighting（特写镜头）
+                Jackson Pollock（波洛克）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Drone "}
+                    value={" Leonardo da Vinci "}
                 />
-                Drone（无人机视角）
+                Leonardo da Vinci（达·芬奇）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Extreme Close Up "}
+                    value={" Max Ernst "}
                 />
-                Extreme Close Up（极度特写）
+                Max Ernst（马克斯·恩斯特）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Front View "}
+                    value={" Norman Rockwell "}
                 />
-                Front View（正面视角）
+                Norman Rockwell（诺曼·洛克威尔）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" GoPro "}
+                    value={" Paul Cézanne "}
                 />
-                GoPro（自拍视角）
+                Paul Cézanne（保罗·塞尚）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Macro Shot "}
+                    value={" Peter Paul Rubens "}
                 />
-                Macro Shot（显微镜视角）
+                Peter Paul Rubens（鲁本斯）
             </label>
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
-                    on:change={changeRadio}
-                    value={" Symmetrical "}
-                />
-                Symmetrical（视觉对称）
-            </label>
-            <label>
-                <input
-                    type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
                     value={" Up View "}
                 />
@@ -127,11 +118,47 @@
             <label>
                 <input
                     type="radio"
-                    bind:group={compositionText}
+                    bind:group={artistText}
                     on:change={changeRadio}
-                    value={" Vanishing Point "}
+                    value={" Pablo Picasso "}
                 />
-                Vanishing Point（消失点）
+                Pablo Picasso（毕加索）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={artistText}
+                    on:change={changeRadio}
+                    value={" Rembrandt Harmenszoon van Rijn "}
+                />
+                Rembrandt Harmenszoon van Rijn（伦勃朗）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={artistText}
+                    on:change={changeRadio}
+                    value={" Salvador Dali "}
+                />
+                Salvador Dali（达利）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={artistText}
+                    on:change={changeRadio}
+                    value={" Vincent van Gogh "}
+                />
+                Vincent van Gogh（梵高）
+            </label>
+            <label>
+                <input
+                    type="radio"
+                    bind:group={artistText}
+                    on:change={changeRadio}
+                    value={" Wassily Kandinsky "}
+                />
+                Wassily Kandinsky（康定斯基）
             </label>
             
             <button
@@ -141,7 +168,7 @@
         </div>
     </div>
     <div class="w-9/12 h-screen">
-        <article class="prose max-w-screen-md prose-code:bg-gray-200 h-4/5 overflow-y-scroll p-3">
+        <article class="prose max-w-screen-lg prose-code:bg-gray-200 h-4/5 overflow-y-scroll p-3">
             {@html marked.parse(markdown)}
         </article>
     </div>

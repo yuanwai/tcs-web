@@ -39,8 +39,11 @@ const config = {
                   background: '#eeeeee',
                 }
               }
-            }
-          }
+            },
+          },
+          prose: {
+            maxWidth: '120ch',
+          },
         }
       },
     },
