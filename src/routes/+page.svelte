@@ -96,12 +96,12 @@
                                     aria-current="page">土猛调参</a
                                 >
                                 <a
-                                    href="http://blog.tiaocanshu.com"
+                                    href="https://blog.tiaocanshu.com"
                                     class="text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                     >blog</a
                                 >
                                 <a
-                                    href="http://blog.tiaocanshu.com/about"
+                                    href="https://blog.tiaocanshu.com/about"
                                     class="text-gray-700 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                     >关于我们</a
                                 >
