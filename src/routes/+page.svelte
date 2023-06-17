@@ -21,12 +21,14 @@
     import jingtouParam from "./jingtouParam/+page.svelte";
 
     // @ts-ignore
-    import { prompt_map } from "./store.js";
+    import { prompt_map,style_map } from "./store.js";
     let prompt_str = "";
     /**
      * @type {any[]}
      */
     let valuesArray = [];
+
+    let stylesArray = [];
 
     let activeComponent = "banben"; // 默认渲染字符串参数组件
     const components = {
@@ -54,6 +56,21 @@
     $: component = components[activeComponent]; // 根据activeComponent获取对应组件
     $: {
         valuesArray = Object.values($prompt_map);
+        stylesArray = Object.values($style_map);
+    }
+
+    let isCopied = false;
+
+    function copyPrompt(){
+        const final_prompt_str = prompt_str + (" ") + stylesArray.join(" | ") + (valuesArray.join(" "));
+        navigator.clipboard.writeText(final_prompt_str)
+        .then(() => {
+        isCopied = true;
+      })
+      .catch((error) => {
+        isCopied = false;
+        console.log("Copy button click action fail...")
+      });
     }
 </script>
 
@@ -98,19 +115,14 @@
             <div class="flex flex-col w-6/12 p-4 border-b">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <div class="w-full flex-col">
-                    <label class="text-lg font-bold">想象力Prompt</label>
+                    <label class="text-lg font-bold">想象力Prompt（建议用英文）</label>
                     <div class="flex flex-row w-full">
-                        <div class="w-10/12">
+                        <div class="w-full">
                             <textarea
                                 class="block w-full h-10 mt-2 border border-gray-300 rounded-md pl-1 pt-2"
-                                placeholder="输入您的想象力，然后点击，翻译成英文..."
+                                bind:value={prompt_str} 
+                                placeholder="输入您的想象力，请务必用英文哦..."
                             />
-                        </div>
-                        <div class="w-2/12 left-0">
-                            <button
-                                class="w-11/12 mt-2 ml-4 h-10 text-white bg-indigo-300 hover:bg-cyan-600 shadow-lg font-medium"
-                                >翻译并检查
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -118,18 +130,23 @@
                     <!-- svelte-ignore a11y-label-has-associated-control -->
                     <label class="text-lg font-bold">参数内容</label>
                     <textarea
-                        class="block w-full h-10 mt-2 border border-gray-300 rounded-md pl-1 pt-2"
+                        class="block w-full h-15 mt-2 border border-gray-300 rounded-md pl-1 pt-2"
                         placeholder="调整的参数内容..."
-                        value={valuesArray.join(" ")}
+                        value={stylesArray.join(" | ") + (valuesArray.join(" "))}
                     />
                 </div>
             </div>
             <div class="w-2/12 flex flex-row p-4">
                 <div class="w-full">
-                    <button
-                        class="w-1/2 h-full text-white rounded bg-indigo-500 hover:bg-cyan-600 shadow-lg font-medium"
-                        >完整复制</button
-                    >
+                    {#if isCopied}
+                    <button class="w-1/2 h-full text-white rounded bg-indigo-500 hover:bg-cyan-600 shadow-lg font-medium"
+                        on:click={copyPrompt}>已复制 </button>
+                        {:else}
+                        <button class="w-1/2 h-full text-white rounded bg-indigo-500 hover:bg-cyan-600 shadow-lg font-medium"
+                        on:click={copyPrompt}>复制 </button>
+                        {/if}
+                       
+                    
                 </div>
             </div>
         </div>
@@ -286,7 +303,7 @@
                             on:click={() => {
                                 activeComponent = "dengguang";
                             }}
-                            >灯光(Light) {#if $prompt_map["light"] != null}<button
+                            >灯光(Light) {#if $style_map["dengguang"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -298,7 +315,7 @@
                             on:click={() => {
                                 activeComponent = "dongman";
                             }}
-                            >动漫(Anime){#if $prompt_map["anime"] != null}<button
+                            >动漫(Anime){#if $style_map["anime"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -310,7 +327,7 @@
                             on:click={() => {
                                 activeComponent = "jingtou";
                             }}
-                            >镜头(Camera) {#if $prompt_map["cameralens"] != null}<button
+                            >镜头(Camera) {#if $style_map["jingtou"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -321,7 +338,7 @@
                             on:click={() => {
                                 activeComponent = "artist";
                             }}
-                            >艺术家(Artist) {#if $prompt_map["artist"] != null}<button
+                            >艺术家(Artist) {#if $style_map["artist"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >
@@ -332,7 +349,7 @@
                             on:click={() => {
                                 activeComponent = "shejishi";
                             }}
-                            >设计师(Designer) {#if $prompt_map["designer"] != null}<button
+                            >设计师(Designer) {#if $style_map["designer"] != null}<button
                                     class="absolute top-1 right-0 h-3 w-3 bg-red-600 rounded-full"
                                 />{/if}</button
                         >

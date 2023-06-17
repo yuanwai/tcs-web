@@ -3,7 +3,7 @@
     import { marked } from "marked";
 
     // @ts-ignore
-    import { prompt_map, addItem, emptyItem } from "./../store.js";
+    import { style_map,addStyle,emptyStyle } from "./../store.js";
 
     let lightText = "";
     let markdown = "";
@@ -16,7 +16,7 @@
     }
     onMount(() => {
         // @ts-ignore
-        prompt_map.subscribe((val) => (lightText = val["dengguang"]));
+        style_map.subscribe((val) => (lightText = val["dengguang"]));
       
 
         fetch("../md/light.md")
@@ -29,10 +29,10 @@
             });
     });
     function changeRadio() {
-        addItem("dengguang", lightText);
+        addStyle("dengguang", lightText);
     }
     function removeBanben() {
-        emptyItem("dengguang");
+        emptyStyle("dengguang");
     }
 </script>
 

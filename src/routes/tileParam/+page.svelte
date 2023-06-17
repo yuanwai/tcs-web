@@ -3,7 +3,7 @@
     import { marked } from "marked";
     // @ts-ignore
     import { prompt_map, addItem, emptyItem } from "./../store.js";
-    import { empty } from "svelte/internal";
+
     let tile = "";
     let tileValue = false;
     let markdown = "";
@@ -38,7 +38,8 @@
             });
     });
     function changeRate() {
-        addItem("tile", "--tile ");
+        if (tileValue) addItem("tile", "--tile ");
+        else removeTile();
     }
     function removeTile() {
         emptyItem("tile");

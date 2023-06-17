@@ -1,4 +1,4 @@
-# Aspect Ratios 长宽比
+# Aspect Ratios（长宽比）
 
 ------
 

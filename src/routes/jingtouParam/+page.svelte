@@ -3,7 +3,7 @@
     import { marked } from "marked";
 
     // @ts-ignore
-    import { prompt_map, addItem, emptyItem } from "./../store.js";
+    import { style_map, addStyle, emptyStyle } from "./../store.js";
 
     let compositionText = "";
     let markdown = "";
@@ -16,7 +16,7 @@
     }
     onMount(() => {
         // @ts-ignore
-        prompt_map.subscribe((val) => (compositionText = val["jingtou"]));
+        style_map.subscribe((val) => (compositionText = val["jingtou"]));
       
 
         fetch("../md/composition.md")
@@ -29,10 +29,10 @@
             });
     });
     function changeRadio() {
-        addItem("jingtou", compositionText);
+        addStyle("jingtou", compositionText);
     }
     function removeBanben() {
-        emptyItem("jingtou");
+        emptyStyle("jingtou");
     }
 </script>
 

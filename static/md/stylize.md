@@ -1,4 +1,4 @@
-# Stylize 美化
+# Stylize （美化）
 
 ------
 
