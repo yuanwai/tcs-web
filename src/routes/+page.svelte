@@ -22,6 +22,8 @@
 
     // @ts-ignore
     import { prompt_map,style_map } from "./store.js";
+    import { GET } from "./logbin/+server";
+    import Menuitem from "./menuItem/+page.svelte";
     let prompt_str = "";
     /**
      * @type {any[]}
@@ -65,6 +67,7 @@
         const final_prompt_str = prompt_str + (" ") + stylesArray.join(" | ") + (valuesArray.join(" "));
         navigator.clipboard.writeText(final_prompt_str)
         .then(() => {
+            GET(final_prompt_str);
         isCopied = true;
       })
       .catch((error) => {
@@ -158,6 +161,7 @@
                     >
                     <div class="pl-4 divide-y">
                         <!-- param:version -->
+                        
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100 relative"
                             on:click={() => {
@@ -170,6 +174,7 @@
                                 />
                             {/if}
                         </button>
+
                         <!-- param:aspect ratios -->
                         <button
                             class="w-full py-2 text-left hover:bg-gray-100 relative"
