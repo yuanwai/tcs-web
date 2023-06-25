@@ -12,7 +12,7 @@ export async function GET(log) {
       };
 
     //console.log("log:"+ logJson);
-    fetch('https://log.tiancanshu.com/save_log', {
+    fetch('http://log.tiancanshu.com/save_log', {
       // @ts-ignore
       origin: 'https://tiaocanshu.com',
       method: 'POST',
