@@ -3,25 +3,16 @@ import { onMount } from "svelte";
 // @ts-nocheck
 /** @type {import('./$types').RequestHandler} */
 export async function GET(log) {
-    let clientIP;
-    onMount(async () => {
-      try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        clientIP = data.ip;
-      } catch (error) {
-        console.error('Error fetching client IP', error);
-      }
-    });
-
+    let clientIP = "0.0.0.0";
+    
     let logJson = {
-        time: new Date().toLocaleDateString + " "+new Date().toLocaleTimeString(),
+        time: new Date().toLocaleString(),
         client_ip: clientIP,
         log_content: log
       };
 
     //console.log("log:"+ logJson);
-    fetch('http://localhost:3000/log', {
+    fetch('http://localhost:3000/save_log', {
       // @ts-ignore
       origin: 'http://localhost:5173',
       method: 'POST',
