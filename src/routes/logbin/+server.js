@@ -12,9 +12,9 @@ export async function GET(log) {
       };
 
     //console.log("log:"+ logJson);
-    fetch('http://localhost:3000/save_log', {
+    fetch('https://log.tiancanshu.com/save_log', {
       // @ts-ignore
-      origin: 'http://localhost:5173',
+      origin: 'https://tiaocanshu.com',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
