@@ -87,7 +87,7 @@
                             <img
                                 class="h-10 w-10"
                                 src="./images/favicon/a.svg?color=indigo&shade=500"
-                                alt="土猛调参——Midjourney参数工具"
+                                alt="萌嘉画图教程网站——Midjourney参数工具"
                             />
                         </div>
                         <div class="hidden md:block">
@@ -96,7 +96,7 @@
                                 <a
                                     href="/"
                                     class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                                    aria-current="page">土猛调参</a
+                                    aria-current="page">萌嘉画图教程网站</a
                                 >
                                 <a
                                     href="https://blog.tiaocanshu.com"
