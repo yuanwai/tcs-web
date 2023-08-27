@@ -385,9 +385,8 @@
                     <svelte:component this={component} />
                 </div>
                 <span class="place-self-center"
-                    >&copy 2023 MGN Tech. | ICP证: <a
-                        href="https://beian.miit.gov.cn/"
-                        target="_blank">浙ICP备2023015070号</a>
+                    >&copy 2023 Mengjia.net | ICP证:<a href="https://beian.miit.gov.cn/"
+                        target="_blank">浙ICP备2023015070号-1</a>
                         </span>
             </div>
         </div>
