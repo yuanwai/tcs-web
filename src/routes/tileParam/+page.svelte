@@ -67,8 +67,8 @@
             on:click={removeTile}>清空选择</button
         >
     </div>
-    <div class="w-8/12 h-screen">
-        <article class="prose h-4/5 overflow-y-scroll p-3">
+    <div class="w-8/12">
+        <article class="prose h-196 overflow-y-scroll p-3">
             {@html marked.parse(markdown)}
         </article>
     </div>

@@ -167,8 +167,8 @@
             >
         </div>
     </div>
-    <div class="w-9/12 h-screen">
-        <article class="prose max-w-screen-lg prose-code:bg-gray-200 h-4/5 overflow-y-scroll p-3">
+    <div class="w-9/12">
+        <article class="prose max-w-screen-lg prose-code:bg-gray-200 overflow-y-scroll p-3 h-196">
             {@html marked.parse(markdown)}
         </article>
     </div>
