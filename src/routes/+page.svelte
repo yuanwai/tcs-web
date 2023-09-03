@@ -91,7 +91,7 @@
     }
 </script>
 
-<div class="flex flex-col h-screen items-center justify-center">
+<div class="flex flex-col h-screen">
     <div class="w-1/2 shadow">
     <Navbar let:hidden let:toggle>
         <NavBrand href="/">
@@ -157,7 +157,7 @@
             </div>
         </div>
     </div>
-    <div class="flex h-3/5 justify-center">
+    <div class="flex h-3/5">
         <div class="w-48 p-4 border-r">
             <div class="mb-4">
                 <button class="w-full py-2 text-left hover:bg-gray-100"
